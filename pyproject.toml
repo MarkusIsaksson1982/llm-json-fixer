@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-json-fixer"
+version = "1.0.0"
+description = "MCP server that deterministically repairs, extracts, validates and coerces JSON produced by LLMs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Markus Isaksson"}]
+dependencies = ["mcp>=2.3,<3", "json-repair>=0.64,<1", "jsonschema>=4.18,<5"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+llm-json-fixer = "llm_json_fixer.server:main"
+
+[project.urls]
+Homepage = "https://github.com/MarkusIsaksson1982/llm-json-fixer"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llm_json_fixer"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]

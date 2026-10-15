@@ -1,0 +1,69 @@
+{
+ "manifest_version": "0.4",
+ "name": "llm-json-fixer",
+ "display_name": "LLM JSON Fixer",
+ "version": "1.0.0",
+ "description": "Deterministic repair, extraction, JSON Schema validation and coercion for JSON produced by LLMs. No LLM calls, no API key.",
+ "author": {
+  "name": "Markus Isaksson",
+  "url": "https://github.com/MarkusIsaksson1982"
+ },
+ "homepage": "https://github.com/MarkusIsaksson1982/llm-json-fixer",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/MarkusIsaksson1982/llm-json-fixer"
+ },
+ "license": "MIT",
+ "keywords": [
+  "json",
+  "repair",
+  "llm",
+  "json-schema",
+  "validation",
+  "structured-output"
+ ],
+ "server": {
+  "type": "uv",
+  "entry_point": "src/llm_json_fixer/server.py",
+  "mcp_config": {
+   "command": "uv",
+   "args": [
+    "run",
+    "--directory",
+    "${__dirname}",
+    "llm-json-fixer"
+   ]
+  }
+ },
+ "tools": [
+  {
+   "name": "repair_json",
+   "description": "Repair broken LLM JSON"
+  },
+  {
+   "name": "extract_json",
+   "description": "Extract JSON values from prose"
+  },
+  {
+   "name": "validate_json",
+   "description": "Validate against a JSON Schema"
+  },
+  {
+   "name": "coerce_to_schema",
+   "description": "Coerce types to a JSON Schema"
+  },
+  {
+   "name": "complete_json",
+   "description": "Close truncated/streaming JSON"
+  },
+  {
+   "name": "diff_json",
+   "description": "JSON Patch-style diff of two documents"
+  }
+ ],
+ "compatibility": {
+  "runtimes": {
+   "python": ">=3.10"
+  }
+ }
+}
