@@ -1,0 +1,8 @@
+{
+  "expect": [
+    {
+      "summary": "Mixed \"quotes\" and\nnewlines",
+      "n": 3
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "expect": [
+    {
+      "key with spaces": "v",
+      "": 0
+    }
+  ]
+}

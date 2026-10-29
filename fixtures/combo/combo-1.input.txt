@@ -1,0 +1,7 @@
+```json
+{
+  name: 'Ada', // who
+  active: True,
+  scores: [1, 2, 3,],
+}
+```

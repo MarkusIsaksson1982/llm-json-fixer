@@ -1,0 +1,32 @@
+{
+  "expect": [
+    {
+      "age": 41,
+      "active": true
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "age": {
+        "type": "integer"
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "score": {
+        "type": "number"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "age",
+      "active"
+    ]
+  }
+}

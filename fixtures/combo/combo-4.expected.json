@@ -1,0 +1,11 @@
+{
+  "expect": [
+    {
+      "tool": "search",
+      "args": {
+        "query": "MCP servers",
+        "limit": 5
+      }
+    }
+  ]
+}

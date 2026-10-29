@@ -1,0 +1,8 @@
+{
+  "expect": [
+    {
+      "city": "Uppsala",
+      "temp": 9.5
+    }
+  ]
+}

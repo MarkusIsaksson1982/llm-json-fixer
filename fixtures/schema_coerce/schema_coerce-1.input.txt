@@ -1,0 +1,1 @@
+{"age": "41", "active": "true", "score": "3.5", "tags": "solo"}

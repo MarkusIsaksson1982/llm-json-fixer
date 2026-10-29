@@ -1,0 +1,4 @@
+```json
+{"summary": "Mixed "quotes" and
+newlines", "n": 3,}
+```

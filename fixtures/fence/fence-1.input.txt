@@ -1,0 +1,3 @@
+```json
+{"name": "Ada", "age": 36, "tags": ["x", "y"]}
+```

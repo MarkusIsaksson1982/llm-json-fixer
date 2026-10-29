@@ -1,0 +1,4 @@
+{
+  // the user
+  "name": "Ada" /* inline */, "age": 36
+}

@@ -1,5 +1,7 @@
 # llm-json-fixer
 
+**Use when** an agent needs to repair invalid JSON from an LLM (code fences, trailing commas, single quotes, Python `True`/`None`, truncated output) without calling another LLM.
+
 An MCP server that turns broken JSON from language models into valid JSON. It is **deterministic**: no LLM calls, no network access, no API key, and the same input always gives the same output. It never invents data. When there is no JSON in the input, it says so instead of making something up.
 
 It is available on Smithery as [`markusisaksson/llm-json-fixer`](https://smithery.ai/servers/markusisaksson/llm-json-fixer).
@@ -80,10 +82,26 @@ Development:
 
 ```sh
 pip install -e .[dev]
-pytest                      # 178 tests
+pytest                      # 250 tests
 python scripts/smoke.py     # starts the server over stdio and calls every tool
 packaging/build_mcpb.sh     # builds dist/llm-json-fixer.mcpb
 ```
+
+## Fixtures and repair catalogue
+
+[`fixtures/`](fixtures) holds one folder per failure class (`trailing_comma/`, `truncated/`, `python_literals/`, `no_json/` and so on). Each case is a plain `<id>.input.txt` with the broken model output and `<id>.expected.json` with the accepted result. [`docs/REPAIR-CATALOGUE.md`](docs/REPAIR-CATALOGUE.md) shows every case with its input, the repaired output and the fixes applied. Both are generated from `tests/data/corpus.json` by `scripts/export_fixtures.py`, and a test checks that they are in sync.
+
+## Test queries
+
+These five queries should find this repository in a code search such as [Xerj](https://xerj.dev); each lists the file expected in the top 5 results. Checked locally with `xerj code` (v1.0.0-rc.100) on 2026-10-29.
+
+| Query | Expected file |
+|---|---|
+| `repair invalid JSON from LLM output without calling an LLM` | `src/llm_json_fixer/core.py` |
+| `remove trailing commas in LLM JSON` | `docs/REPAIR-CATALOGUE.md` |
+| `repair truncated JSON max_tokens cut-off` | `docs/REPAIR-CATALOGUE.md` |
+| `convert Python True None literals to JSON` | `docs/REPAIR-CATALOGUE.md` |
+| `extract JSON from markdown code fence in model response` | `src/llm_json_fixer/extract.py` |
 
 ## Credits
 

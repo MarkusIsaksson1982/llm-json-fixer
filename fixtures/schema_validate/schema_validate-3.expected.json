@@ -1,0 +1,28 @@
+{
+  "expect": [
+    {
+      "status": "open"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": [
+          "open",
+          "closed"
+        ]
+      },
+      "count": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "status",
+      "count"
+    ],
+    "additionalProperties": false
+  },
+  "valid": false
+}

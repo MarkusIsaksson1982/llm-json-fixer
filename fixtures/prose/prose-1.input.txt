@@ -1,0 +1,1 @@
+Sure! The result is {"city": "Uppsala", "temp": 9.5} as requested.

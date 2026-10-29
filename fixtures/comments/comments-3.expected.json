@@ -1,0 +1,7 @@
+{
+  "expect": [
+    {
+      "url": "http://example.com/a//b"
+    }
+  ]
+}

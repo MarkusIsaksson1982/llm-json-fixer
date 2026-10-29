@@ -1,0 +1,1 @@
+{"name": "Åsa Öberg", "city": "Malmö", "emoji": "🙂"}
