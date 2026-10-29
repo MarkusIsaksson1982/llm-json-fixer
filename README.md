@@ -97,7 +97,7 @@ These five queries should find this repository in a code search such as [Xerj](h
 
 | Query | Expected file |
 |---|---|
-| `repair invalid JSON from LLM output without calling an LLM` | `src/llm_json_fixer/core.py` |
+| `repair invalid JSON from LLM output without calling an LLM` | `docs/REPAIR-CATALOGUE.md` |
 | `remove trailing commas in LLM JSON` | `docs/REPAIR-CATALOGUE.md` |
 | `repair truncated JSON max_tokens cut-off` | `docs/REPAIR-CATALOGUE.md` |
 | `convert Python True None literals to JSON` | `docs/REPAIR-CATALOGUE.md` |
