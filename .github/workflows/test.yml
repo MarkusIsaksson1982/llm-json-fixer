@@ -1,0 +1,17 @@
+name: test
+on: [push, pull_request]
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e .[dev]
+      - run: pytest -q
+      - name: fixtures and catalogue are in sync with the corpus
+        run: python scripts/export_fixtures.py && git diff --exit-code fixtures docs
