@@ -1,5 +1,7 @@
 """Deterministic repair pipeline for broken LLM JSON output. No network or LLM calls.
 
+Repair invalid JSON from LLM output without calling an LLM.
+
 Pipeline: strict parse -> code-fence strip -> locate JSON in prose -> token pre-pass (NaN/Infinity/undefined,
 hex/+/.5 numbers, truncated literals) -> tolerant parse (json_repair) -> post-pass (non-finite floats) ->
 optional schema coercion + validation. Every step that changes something is recorded in `changes`.

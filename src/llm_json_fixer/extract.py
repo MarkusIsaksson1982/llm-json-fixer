@@ -1,4 +1,6 @@
-"""Locate JSON-like spans in LLM output text (no parsing, no repair). Standard library only."""
+"""Extract JSON from a markdown code fence or surrounding prose in a model response.
+
+Locate JSON-like spans in LLM output text (no parsing, no repair). Standard library only."""
 from __future__ import annotations
 
 import re
