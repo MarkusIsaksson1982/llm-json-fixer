@@ -182,10 +182,23 @@ def _drop_partial_tail(text: str, value: Any, changes: list[dict]) -> Any:
 
 
 def _clean_nonfinite(v: Any) -> Any:
-    if isinstance(v, float) and (math.isnan(v) or math.isinf(v)): return None
-    if isinstance(v, list): return [_clean_nonfinite(x) for x in v]
-    if isinstance(v, dict): return {k: _clean_nonfinite(x) for k, x in v.items()}
-    return v
+    """Replace NaN/Infinity with null in a copy of v. Iterative, so deep nesting cannot hit the recursion limit."""
+    def leaf(x: Any) -> Any:
+        return None if isinstance(x, float) and (math.isnan(x) or math.isinf(x)) else x
+    if not isinstance(v, (list, dict)): return leaf(v)
+    root = [] if isinstance(v, list) else {}
+    stack = [(v, root)]
+    while stack:
+        src, dst = stack.pop()
+        for k, x in (enumerate(src) if isinstance(src, list) else src.items()):
+            if isinstance(x, (list, dict)):
+                y = [] if isinstance(x, list) else {}
+                stack.append((x, y))
+            else:
+                y = leaf(x)
+            if isinstance(dst, list): dst.append(y)
+            else: dst[k] = y
+    return root
 
 
 _LOG_MAP = [
